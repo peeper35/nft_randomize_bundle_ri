@@ -15,7 +15,7 @@ impl NFT {
         let mut bundle_vec = Vec::new();
         let mut rng = thread_rng();
 
-        if self.nft_addresses.len() > 1 && bundle_size <= self.nft_addresses.len() {
+        if self.nft_addresses.len() > 1 && self.nft_addresses.len() >= bundle_size {
             self.nft_addresses.shuffle(&mut rng);
             for _ in 0..bundle_size {
                 bundle_vec.push(self.nft_addresses[0].clone());
